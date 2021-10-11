@@ -1,21 +1,23 @@
-# FirstGenetic
+# First GA assignment
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `first_genetic` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:first_genetic, "~> 0.1.0"}
-  ]
-end
+## Requirements
+In order to run you'd need Elixir and Erlang in your environment. I recommend to use [asdf](https://github.com/asdf-vm/asdf), since you've got `.tool-versions` available:
+```
+asdf install
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/first_genetic](https://hexdocs.pm/first_genetic).
+## Execution
+Enter IEx shell from project root:
+```
+> iex -S mix
+```
+
+Run the algorithm with designated parameters:
+```
+iex(1)> FirstGenetic.solve(1,40,0.9,0.005)
+[252, 252, 248, 236, 232, 233, 252, 232, 235, 231, 244, 231, 231, 234, 255, 235,
+ 232, 251, 254, 251, 235, 248, 251, 254, 254, 234, 252, 253, 231, 248, 251, 244,
+ 250, 251, 250, 248, 251, 239, 235, 251]
+```
+
 
