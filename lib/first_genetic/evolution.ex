@@ -1,11 +1,23 @@
 defmodule FirstGenetic.Evolution do
   alias FirstGenetic.{Crossing, Encoding, Mutation, Pairing, Selection}
-  def evolve_n_times(pop, fun, ile_wyn, pr_krzyz, pr_mut) do
-    1..ile_wyn
-    |> Enum.reduce(pop,
-      fn _i, curr_pop ->
-        evolve_population(curr_pop, fun, pr_krzyz, pr_mut)
-      end)
+
+  def evolve_populations_n_times(pops, _fun, 0, _pr_krzyz, _pr_mut), do: pops
+  def evolve_populations_n_times(pops, fun, ile_wyn, pr_krzyz, pr_mut) do
+    pops
+    |> Enum.map(& evolve_population(&1, fun, pr_krzyz, pr_mut))
+    |> inspect_max(fun)
+    |> evolve_populations_n_times(fun, ile_wyn-1, pr_krzyz, pr_mut)
+  end
+
+  defp inspect_max(pops, f) do
+    best =
+      pops
+      |> Enum.flat_map(& &1)
+      |> Enum.max_by(f)
+
+    IO.inspect("Best: #{best}, f(Best): #{f.(best)}")
+
+    pops
   end
 
   defp evolve_population(population, f, pr_krzyz, pr_mut) do
