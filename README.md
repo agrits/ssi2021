@@ -17,4 +17,8 @@ Run the algorithm with designated parameters:
 iex(1)> FirstGenetic.solve(1,40,0.9,0.005)
 ```
 
+or build escript with `mix escript.build` and run with desired arguments by 
+```
+./first_genetic 1 40 0.9 0.005
+```
 

@@ -16,11 +16,11 @@ defmodule FirstGenetic.Pairing do
 
   defp new_pair(_, {pairs, mates_left}) do
     [head | tail] = mates_left
-    idx = round(:rand.uniform()*(length(mates_left) - 2))
+    idx = round(:rand.uniform() * (length(mates_left) - 2))
 
     pair = {head, tail |> Enum.at(idx)}
 
-    new_mates_left = (tail |> Enum.take(idx)) ++ (tail |> Enum.drop(idx+1))
+    new_mates_left = (tail |> Enum.take(idx)) ++ (tail |> Enum.drop(idx + 1))
     {:cont, {pairs ++ [pair], new_mates_left}}
   end
 end

@@ -1,7 +1,7 @@
 defmodule FirstGenetic.Crossing do
   def cross_pairs(pairs, pr_krzyz) do
     pairs
-    |> Enum.map(& &1 |> cross(pr_krzyz))
+    |> Enum.map(&(&1 |> cross(pr_krzyz)))
   end
 
   defp cross({specie1, specie2} = pair, pr_krzyz) do
@@ -14,7 +14,8 @@ defmodule FirstGenetic.Crossing do
         child2 = left2 <> right1
         {child1, child2}
 
-      false -> pair
+      false ->
+        pair
     end
   end
 
@@ -23,6 +24,6 @@ defmodule FirstGenetic.Crossing do
   end
 
   defp random_cutting_point() do
-    round(:rand.uniform*6)+1
+    round(:rand.uniform() * 6) + 1
   end
 end

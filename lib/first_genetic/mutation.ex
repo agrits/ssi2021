@@ -1,13 +1,13 @@
 defmodule FirstGenetic.Mutation do
   def mutate_pop(pop, pr_mut) do
     pop
-    |> Enum.map(& &1 |> mutate_specie(pr_mut))
+    |> Enum.map(&(&1 |> mutate_specie(pr_mut)))
   end
 
   def mutate_specie(specie, pr_mut) do
     specie
     |> String.to_charlist()
-    |> Enum.map(& mutate_gene(&1, pr_mut))
+    |> Enum.map(&mutate_gene(&1, pr_mut))
     |> to_string()
   end
 
