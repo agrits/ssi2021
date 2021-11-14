@@ -6,6 +6,13 @@ In order to run you'd need Elixir and Erlang in your environment. I recommend to
 asdf install
 ```
 
+## Arguments
+
+In order:
+```
+lb_pop, ile_os, pr_krzyz, pr_mut, a \\ 7, b \\ 4, c \\ 2, ile_wyn \\ 40
+```
+
 ## Execution
 Enter IEx shell from project root:
 ```
